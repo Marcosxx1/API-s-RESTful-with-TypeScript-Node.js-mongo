@@ -1,0 +1,7 @@
+Pegando imagem:  pull tutum/mongodb
+Rodando: docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongodb
+Pacotes NPM: npm i typescript ts-node body-parser express http-status --save
+Typos para TS: npm i @types/node @types/body-parser @types/express @types/http-status --save-dev
+tsconfig.json: npx tsc --init
+importando mongoose: npm i mongoose --save
+Tipos para o mongoose: @types/mongoose --save--dev
