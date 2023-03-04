@@ -7,7 +7,7 @@ import * as HttpStatus from "http-status";
 
 
 class newsController {
-    sendResponse = function (res, statusCode, data) {
+    sendResponse = function (res, statusCode?, data?) {
         res.status(statusCode).json({ reult: data });
     }
 
@@ -42,7 +42,15 @@ class newsController {
                 this.sendResponse(res, HttpStatus.OK, `${newsBody.title} successfully updated`))
             .catch(error => console.error.bind(console, `Error ${error}`))
     }
-    delete(req: Request, res: Response) { }
+    delete(req: Request, res: Response) {
+        const _id = req.params._id;
+
+        newsServices.delete(_id)
+            .then(() =>
+                this.sendResponse(`News successfully deleted`))
+            .catch(error => console.error.bind(console, `Error ${error}`))
+    }
 }
+
 
 export default new newsController();
