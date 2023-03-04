@@ -23,6 +23,15 @@ class newsController {
             .catch(error => console.error.bind(console, `Error ${error}`))
     }
 
+    create(req: Request, res: Response) {
+        let body = req.body;
+
+        newsServices.create(body)
+            .then(news =>
+                this.sendResponse(res, HttpStatus.OK, "News successfully created"))
+            .catch(error => console.error.bind(console, `Error ${error}`))
+    }
+
 
     update(req: Request, res: Response) {
         const _id = req.params._id;
