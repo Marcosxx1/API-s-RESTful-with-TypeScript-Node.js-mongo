@@ -16,8 +16,19 @@ class newsController {
             .then(news => this.sendResponse(res, HttpStatus.OK, news))
             .catch(error => console.error.bind(console, `Error ${error}`))
     }
-    getById(req: Request, res: Response) { }
-    update(req: Request, res: Response) { }
+    getById(req: Request, res: Response) {
+        const _id = req.params._id;
+        newsServices.getById(_id)
+            .then(news => this.sendResponse(res, HttpStatus.OK, news))
+            .catch(error => console.error.bind(console, `Error ${error}`))
+    }
+
+
+    update(req: Request, res: Response) {
+        const _id = req.params._id;
+
+        // newsServices.update()
+    }
     delete(req: Request, res: Response) { }
 }
 
