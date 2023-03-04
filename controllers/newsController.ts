@@ -35,8 +35,12 @@ class newsController {
 
     update(req: Request, res: Response) {
         const _id = req.params._id;
+        const newsBody = req.body;
 
-        // newsServices.update()
+        newsServices.update(_id, newsBody)
+            .then(news =>
+                this.sendResponse(res, HttpStatus.OK, `${newsBody.title} successfully updated`))
+            .catch(error => console.error.bind(console, `Error ${error}`))
     }
     delete(req: Request, res: Response) { }
 }
